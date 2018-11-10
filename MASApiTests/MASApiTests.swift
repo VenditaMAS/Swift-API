@@ -61,7 +61,7 @@ class MASApiTests: XCTestCase {
         XCGLogger.setup()
         return Caller(server: server, logger: XCGLogger.default)
     }()
-    
+        
     func testListProcessesAndParameters() {
         let e = expectation(description: #function)
         let schedule = ScheduledInvocation(process: "vendita.test_display")

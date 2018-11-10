@@ -24,6 +24,20 @@ public class Caller {
         self.server = server
         self.logger = logger
     }
+    
+    public convenience init?(components: URLComponents, logger: XCGLogger? = nil) {
+        self.init(server: Server(name: "Anonymous \(UUID())", host: components.host!, path: components.path.isWhitespacesAndNewlines ? nil : components.path, port: components.port ?? 443, username: components.user!, password: components.password!), logger: logger)
+    }
+    
+    public convenience init?(url: URL, logger: XCGLogger? = nil) {
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return nil }
+        self.init(components: components, logger: logger)
+    }
+    
+    public convenience init?(url: String, logger: XCGLogger? = nil) {
+        guard let components = URLComponents(string: url) else { return nil }
+        self.init(components: components, logger: logger)
+    }
         
     func send(_ request: URLRequest) -> Observable<Data> {
         logger?.debug("REQUEST: \(request)")

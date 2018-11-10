@@ -15,7 +15,7 @@ public struct Server: Hashable, Codable {
     public let port: Int
     public let username: String
     public let password: String
-    
+        
     public init(name: String = "Anonymous \(UUID())", host: String, path: String? = "/mas", port: Int = 443, username: String, password: String) {
         self.name = name
         self.host = host
