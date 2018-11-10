@@ -1,5 +1,5 @@
 github "prosumma/Iatheto" ~> 2.0
-github "VenditaMAS/Swift-Core" ~> 2.0
+github "VenditaMAS/Swift-MASCore" ~> 2.0
 github "DaveWoodCom/XCGLogger" ~> 6.0
 github "prosumma/KeyedSet" "master"
 github "ReactiveX/RxSwift" ~> 4.3

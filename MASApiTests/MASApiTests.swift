@@ -64,18 +64,17 @@ class MASApiTests: XCTestCase {
     
     func testListProcessesAndParameters() {
         let e = expectation(description: #function)
-        _ = api
-            .listProcesses()
-            .flatMap { [unowned api] processes in
-                Observable.concat(processes.map{ process in api.getProcess(process.name).delay(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .background)) })
-            }
-            .subscribe(onNext: { process in
-                print(process.name)
-                print(process.parameters)
-            }, onCompleted: {
-                e.fulfill()
-            })
-        wait(for: [e], timeout: 1000)
+        let schedule = ScheduledInvocation(process: "vendita.test_display")
+        _ = api.post(schedule)
+            .subscribe(
+                onError: { error in
+                    debugPrint(error)
+                },
+                onDisposed: {
+                    e.fulfill()
+                }
+            )
+        wait(for: [e], timeout: 10)
     }
     
     func testListDataTypes() {

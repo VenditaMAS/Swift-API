@@ -1,5 +1,5 @@
-git "vendita:MASCore" "v2.0"
 github "DaveWoodCom/XCGLogger" "6.1.0"
-github "ReactiveX/RxSwift" "4.3.1"
+github "ReactiveX/RxSwift" "4.4.0"
+github "VenditaMAS/Swift-MASCore" "v2.0"
 github "prosumma/Iatheto" "v2.1"
 github "prosumma/KeyedSet" "bd1916b249c7f1fc6324332e25a2432e8d769551"
