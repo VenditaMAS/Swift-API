@@ -59,7 +59,8 @@ class MASApiTests: XCTestCase {
         let decoder = JSONDecoder()
         let server = try! decoder.decode(Server.self, from: data)
         XCGLogger.setup()
-        return Caller(server: server, logger: XCGLogger.default)
+//        return Caller(server: server, logger: XCGLogger.default)
+        return Caller(url: "https://postgres:Bl4ckC4t@mascloud3.venditabeta.com:443/mas")!
     }()
         
     func testListProcessesAndParameters() {
